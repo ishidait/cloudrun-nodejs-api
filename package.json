@@ -4,7 +4,7 @@
   "description": "An example app using Cloud Run and NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,7 @@
   ],
   "author": "ishidait",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ishidait/cloudrun-nodejs-api/issues"
-  },
-  "homepage": "https://github.com/ishidait/cloudrun-nodejs-api#readme"
+  "dependencies": {
+    "express": "4.17.1"
+  }
 }
