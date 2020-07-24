@@ -1,0 +1,22 @@
+{
+  "name": "cloudrun-nodejs-api",
+  "version": "1.0.0",
+  "description": "An example app using Cloud Run and NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishidait/cloudrun-nodejs-api.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "ishidait",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ishidait/cloudrun-nodejs-api/issues"
+  },
+  "homepage": "https://github.com/ishidait/cloudrun-nodejs-api#readme"
+}
