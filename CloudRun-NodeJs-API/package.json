@@ -19,6 +19,6 @@
     "@google-cloud/translate": "6.0.2",
     "express": "4.17.1",
     "knex": "0.21.2",
-    "mysql2": "2.1.0"
+    "mysql": "github:mysqljs/mysql"
   }
 }

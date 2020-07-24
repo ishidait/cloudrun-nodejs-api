@@ -11,10 +11,11 @@ const connect = () => {
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
+    socketPath: process.env.DB_SOCKET,
   };
 
   return Knex({
-    client: 'mysql2',
+    client: 'mysql',
     version: '5.7',
     connection: config,
   });

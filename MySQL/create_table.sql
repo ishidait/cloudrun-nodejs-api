@@ -1,3 +1,6 @@
+CREATE SCHEMA `todo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
 CREATE TABLE `todo`.`todos` (
   `todos_id` INT NOT NULL AUTO_INCREMENT,
   `content` NVARCHAR(1000) NOT NULL,
