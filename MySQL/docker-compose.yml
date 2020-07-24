@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    env_file: ./mysql.env
+    environment:
+      - TZ=Asia/Tokyo
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./conf:/etc/mysql/conf.d/:ro
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  mysqldata:
