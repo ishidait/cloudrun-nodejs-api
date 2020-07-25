@@ -29,7 +29,7 @@ app.listen(port, () => {
 
 app.get('/hello', async (req, res) => {
   const name = req.query.name;
-  const result = `こんにちは、 ${name} さん！ Welcome!! \n\n`;
+  const result = `こんにちは、 ${name} さん！ ようこそ！ \n\n`;
   res.send(result);
 });
 
