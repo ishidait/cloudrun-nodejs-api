@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
 
 const { Translate } = require('@google-cloud/translate').v2;
 const client = new Translate();
 
 const Knex = require('knex');
+const { resolve } = require('path');
+const { rejects } = require('assert');
 const connect = () => {
   const config = {
     user: process.env.DB_USER,
@@ -25,6 +28,23 @@ const knex = connect();
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API listening on port ${port}.`);
+});
+
+async function getFileText(path) {
+  return await new Promise((resolve, reject) => {
+    fs.readFile(path, { encoding: 'utf-8' }, (err, data) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(data);
+    });
+  });
+}
+
+app.get('/', async (req, res) => {
+  const text = await getFileText('index.html');
+  res.send(text);
 });
 
 app.get('/hello', async (req, res) => {
