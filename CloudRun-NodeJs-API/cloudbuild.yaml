@@ -18,7 +18,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'cloud-run-nodejs-api'
+      - 'todo-api'
       - '--image'
       - 'gcr.io/$PROJECT_ID/cloud-run-nodejs-api:$COMMIT_SHA'
       - '--region'

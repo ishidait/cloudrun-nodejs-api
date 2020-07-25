@@ -1,0 +1,45 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    client.knative.dev/user-image: gcr.io/cloud-run-nodejs-api/cloudrun-nodejs-api@sha256:e9ba03a1a13fc798223599160c4b2536132d6f8c1d20612b8fbc44665664b3f2
+  labels:
+    cloud.googleapis.com/location: us-west1
+    gcb-trigger-id: 60a1cab3-a2cd-4778-b6a3-6d8e2f01def3
+    managed-by: gcp-cloud-build-deploy-cloud-run
+  name: todo-api
+  namespace: '819213663080'
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '10'
+        run.googleapis.com/client-name: cloud-console
+        run.googleapis.com/cloudsql-instances: cloud-run-nodejs-api:us-west1:cloudrun-todo
+      name: todo-api-00008-wat
+    spec:
+      containerConcurrency: 80
+      containers:
+      - env:
+        - name: DB_USER
+          value: root
+        - name: DB_PASS
+          value: todoroot
+        - name: DB_NAME
+          value: todo
+        - name: DB_HOST
+          value: cloud-run-nodejs-api:us-west1:cloudrun-todo
+        - name: DB_SOCKET
+          value: /cloudsql/cloud-run-nodejs-api:us-west1:cloudrun-todo
+        image: gcr.io/cloud-run-nodejs-api/cloudrun-nodejs-api@sha256:e9ba03a1a13fc798223599160c4b2536132d6f8c1d20612b8fbc44665664b3f2
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 256Mi
+      serviceAccountName: 819213663080-compute@developer.gserviceaccount.com
+      timeoutSeconds: 300
+  traffic:
+  - latestRevision: true
+    percent: 100
