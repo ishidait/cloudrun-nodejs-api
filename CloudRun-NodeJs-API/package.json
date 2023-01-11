@@ -18,7 +18,7 @@
   "dependencies": {
     "@google-cloud/translate": "6.0.2",
     "express": "4.17.1",
-    "knex": "0.21.2",
+    "knex": "2.4.0",
     "mysql": "github:mysqljs/mysql"
   }
 }
